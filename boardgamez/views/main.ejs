@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>온라인 보드게임 카페</title>       
+    <link rel="stylesheet" href="/public/css/common_test.css">    
+    <script type="text/javascript" src=""></script> 
+    
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div id="logo"><a href="/"><img src="/public/img/prj_logo2.png" border="0"></a></div>
+            <div id="top_login">
+                <% if (id){ %>
+                    <%= id %>님  | <a href="/logout">로그아웃</a> |<a href="/update">정보수정</a>  
+                <% }else{ %>
+                    <a href="/login">로그인</a> | <a href="/sign">회원가입</a>  
+                <% } %>
+            </div>
+        </div>  <!-- end of header -->
+    
+        <div id="menu">
+            <div class="menus"><a href="/games/game2channel"><img src="/public/img/game2.png" border="0"></a></div>
+            <div class="menus"><a href="/action"><img src="/public/img/auction.png" border="0"></a></div>
+            <div class="menus"><a href="/community"><img src="/public/img/communication.png" border="0"></a></div>
+            <div class="menus"><a href="/service"><img src="/public/img/customer.png" border="0"></a></div>
+        </div>  <!-- end of menu -->
+        <div style="float: left;margin-left: 150px">
+            <video controls autoplay loop>
+            <source src="/public/mp4/play.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div> <!-- end of wrap -->
+    <table border=1 width=1010 style="text-align:center;margin-right: auto;margin-left: auto;">
+        <tr>
+            <td height = "25" width="60" align="center">랭킹</td>
+            <td height = "25" width="200" align="center">아이디</td>
+            <td height = "25" width="70" align="center">포인트</td>
+            
+        </tr>
+        <% for(var i=0;i<len;i++){ %>
+            <tr>
+                <td height = "25" width="60" align="center"><%= i+1 %></td>
+                <td height = "25" width="200" align="left"><%= data[i].userid%></a></td>
+                <td height = "25"  width="70" align="center"><%= data[i].point%></td>
+            </tr>
+        <%}%>
+    </table>
+</body>
+</html>

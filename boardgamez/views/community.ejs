@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>온라인 보드게임 카페</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/common_test.css">
+    <script src="/public/script/communityform.js"></script>      
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div id="logo"><a href="/"><img src="/public/img/prj_logo2.png" border="0"></a></div>
+            <div id="top_login">
+                <% if (user){ %>
+                    <%= user %>님  | <a href="/logout">로그아웃</a> |<a href="/update">정보수정</a>  
+                <% }else{ %>
+                    <a href="/login">로그인</a> | <a href="/sign">회원가입</a>  
+                <% } %>
+            </div>
+        </div>  <!-- end of header -->
+    
+        <div id="menu">
+           <div class="menus"><a href="/games/game2channel"><img src="/public/img/game2.png" border="0"></a></div>
+            
+            <div class="menus"><a href="/action"><img src="/public/img/auction.png" border="0"></a></div>
+            <div class="menus"><a href="/community"><img src="/public/img/communication.png" border="0"></a></div>
+            <div class="menus"><a href="/service"><img src="/public/img/customer.png" border="0"></a></div>
+        </div>  <!-- end of menu -->
+        <div id="content">
+                <div id="col2">
+                    <% if(page){%>
+                        <textarea style="width: 1003px;height: 400px;text-align: left" readonly>
+                        <%=data[page-1].text%>
+                        </textarea>
+                        <%if(data[page-1].comment){
+                            var length = data[page-1].comment;
+                            for(var i = 0;i < length;i++){
+                        %>
+                        <hr>
+                            <p style="font-weight:bold;"><%=comment[i].nickname%></p>
+                            <p><%=comment[i].text%></p>
+                        <%}%>
+                        <%}%>
+                        <form name = "comment_form" action="/community/comment" method="POST">
+                            <br>
+                            닉네임 : <input name="id" style="width: 160px;border-radius: 5px;background-color: rgb(230, 255, 140);"/>
+                            <br><br>
+                            <textarea name="text" style="text-align:left; border-radius: 15px;width:900px; height:150px;"></textarea>
+                            <input name = "key" value = <%=page%> hidden></button>
+                            <input style="float:right;border-radius: 25px;width:100px; height:150px;" type="button" value="등록" onclick="check_comment();"></button>
+                            <br>
+                        </form>
+                    <% }%>
+                    <table border=1 width=1010>
+                        <tr>
+                            <td height = "25" width="60" align="center"><img src="/public/img/community/community_title.gif"></td>
+                            <td height = "25" width="700" align="center"><img src="/public/img/community/community_title_subject.gif"></td>
+                            <td height = "25" width="70" align="center"><img src="/public/img/community/community_title_writer.gif"></td>
+                            <td height = "25" width="100" align="center"><img src="/public/img/community/community_title_day.gif"></td>
+                            <td height = "25" width="30" align="center"><img src="/public/img/community/community_title_hit.gif"></td>
+                        </tr>
+                        <% for(var i=0;i<len;i++){ %>
+                        <tr>
+                            <td height = "25" width="60" align="center"><%= data[i].id%></td>
+                            <td height = "25" width="700" align="left"><a href="/community?page=<%=data[i].id%>"><%= data[i].title%></a></td>
+                            <td height = "25" width="70" align="center"><%= data[i].nickname%></td>
+                            <td height = "25" width="100" align="center" style="font-size: 10px"><%= data[i].date%></td>
+                            <td height = "25" width="30" align="center"><%= data[i].hit%></td>
+                        </tr>
+                        <%}%>
+                        <hr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="100" align="right"></td>
+                            <td width="860" align="center">
+                                
+                            </td>
+                            <td width="50" align="center"><input type="button" value="글쓰기" onclick="location.href='/community/register'"/></td>
+                        </tr>
+                    </table>
+                </div>   
+        </div>
+</body>
+</html>

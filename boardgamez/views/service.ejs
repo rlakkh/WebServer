@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>온라인 보드게임 카페</title>
+    <link rel="stylesheet" href="/public/css/common_test.css">    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+    <script type="text/javascript" src="js/jquery-1.9.2.min.js"></script> 
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script> 
+    
+    <style>
+            .game{
+                margin-right: 80px;
+                height:600px;
+            }
+            .chat{
+                margin-top: auto;
+            }
+            .chat_log{
+                border-radius: 25px;
+                margin-top: 37px;
+                width: 100%; height: 460px;
+                background: rgb(255, 255, 255);
+            }
+            #chatLog{
+                border-radius: 25px;
+                margin-top: 37px;
+                width: 100%; height: 380px;
+                background: rgb(255, 255, 255);
+            }
+            #chatting{
+                bottom: 35px;
+            }
+            .name{ width: 12.1%;height: 20px; }
+            .message{ width: 70%;height: 20px; }
+            .send{ width: 12.1%;height: 20px; }    
+        </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div id="logo"><a href="/"><img src="/public/img/prj_logo2.png" border="0"></a></div>
+            <div id="top_login">
+                <% if (id){ %>
+                    <%= id %>님  | <a href="/logout">로그아웃</a> |<a href="/update">정보수정</a>  
+                <% }else{ %>
+                    <a href="/login">로그인</a> | <a href="/sign">회원가입</a>  
+                <% } %>
+            </div>
+        </div>  <!-- end of header -->
+    
+        <div id="menu">
+            <div class="menus"><a href="/games/game2channel"><img src="/public/img/game2.png" border="0"></a></div>
+            
+            <div class="menus"><a href="/action"><img src="/public/img/auction.png" border="0"></a></div>
+            <div class="menus"><a href="/community"><img src="/public/img/communication.png" border="0"></a></div>
+            <div class="menus"><a href="/service"><img src="/public/img/customer.png" border="0"></a></div>
+        </div>  <!-- end of menu -->
+        <div class = "game">
+            <div class = "chat"></div>
+            <div class = "chat">
+                    <textarea id="chatLog" class="chat_log" readonly></textarea>
+                <form id="chat">
+                  <input id="name" class="name" type="text" readonly>
+                  <input id="message" class="message" type="text">
+                  <input type="submit" class="send" value="chat"/>
+                </form>
+			</div>
+        </div>
+    <script type="text/javascript" src="/public/script/socket_message.js"></script>
+    </div> <!-- end of wrap -->
+</body>
+</html>

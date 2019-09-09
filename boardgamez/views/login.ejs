@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>온라인 보드게임 카페</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/common_test.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/member.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/public/script/login_check.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div id="logo"><a href="/"><img src="/public/img/prj_logo2.png" border="0"></a></div>
+            <div id="top_login">
+                <a href="/login">로그인</a> | <a href="/sign">회원가입</a>
+            </div>
+        </div>  <!-- end of header -->
+    
+        <div id="menu">
+            <div class="menus"><a href="/games/game2channel"><img src="/public/img/game2.png" border="0"></a></div>
+            
+            <div class="menus"><a href="/action"><img src="/public/img/auction.png" border="0"></a></div>
+            <div class="menus"><a href="/community"><img src="/public/img/communication.png" border="0"></a></div>
+            <div class="menus"><a href="/service"><img src="/public/img/customer.png" border="0"></a></div>
+        </div>  <!-- end of menu -->
+        <div id="content">
+            <div id="col2">
+                <form  name="login_form" method="post" action="/login/query">
+                <div id="title">
+                    <img src="/public/img/title_login.gif">
+                </div>
+        
+                <div id="login_form">
+                     <img id="login_msg" src="/public/img/login_msg.gif">
+                     <div class="clear"></div>
+        
+                     <div id="login1">
+                        <img src="/public/img/login_key.gif">
+                     </div>
+                     <div id="login2">
+                        <div id="id_input_button">
+                            <div id="id_pw_title">
+                                <ul>
+                                <li><img src="/public/img/id_title.gif"></li>
+                                <li><img src="/public/img/pw_title.gif"></li>
+                                </ul>
+                            </div>
+                            <div id="id_pw_input">
+                                <ul>
+                                <li><input type="text" name="id" class="login_input"></li>
+                                <li><input type="password" name="pass" class="login_input"></li>
+                                </ul>
+                            </div>
+                            <div id="login_button">
+                                    <a href="#"><img src="/public/img/login_button.gif"  onclick="check_input()"></a>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+        
+                        <div id="login_line"></div>
+                        <div id="join_button">
+                            <img src="/public/img/no_join.gif">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/sign">
+                                <img src="/public/img/join_button.gif">
+                            </a>
+                        </div>
+                    </div>
+                </div> <!-- end of form_login -->
+        
+                </form>
+            </div> <!-- end of col2 -->    
+        </div>
+    </div> <!-- end of wrap -->
+</body>
+</html>

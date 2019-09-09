@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> 경매 물품 등록 </title>
+  <link rel="stylesheet" type="text/css" href="/public/css/common_test.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/ac_regist.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="/public/script/auc_func.js"></script>
+</head>
+<body>
+  <div id="wrap">
+      <div id="header">
+          <div id="logo"><a href="/"><img src="/public/img/prj_logo2.png" border="0"></a></div>
+          <div id="top_login">
+                <% if (id){ %>
+                    <%= id %>님  | <a href="/logout">로그아웃</a> |<a href="/update">정보수정</a>
+                <% }else{ %>
+                    <a href="/login">로그인</a> | <a href="/sign">회원가입</a>
+                <% } %>
+          </div>
+      </div>  <!-- end of header -->
+
+      <div id="menu">
+          <div class="menus"><a href="/games/game2channel"><img src="/public/img/game2.png" border="0"></a></div>
+
+          <div class="menus"><a href="/action"><img src="/public/img/auction.png" border="0"></a></div>
+          <div class="menus"><a href="/community"><img src="/public/img/communication.png" border="0"></a></div>
+          <div class="menus"><a href="/service"><img src="/public/img/customer.png" border="0"></a></div>
+      </div>  <!-- end of menu -->
+  <div id="content">
+          <div id="col2">
+              <form  name="auc_form" method="post" action="/auc/regist">
+                  <div id="title">
+                      <img src="/public/auc_img/auc_regist_title.png">
+                  </div>
+
+                  <div id="form_ac">
+                      <div id="ac1">
+                      <ul>
+                      <li>물품이름</li>
+                      <li>종료일시</li>
+                      <li>최소 낙찰가</li>
+                      </ul>
+                      </div>
+                      <div id="ac2">
+                      <ul>
+                      <li><input type="text" name="auc_name"></li>
+                      <li><input type="date" name="fin_date"></li>
+                      <li><input type="number" name="min_price"></li>
+                      </ul>
+                      </div>
+                  </div>
+
+                  <div style="margin-right: 20px;"><a href="#"><img src="/public/auc_img/button_save.gif" onclick="check_auc()"></a>
+                  </div>
+                  </form>
+              </div> <!-- end of col2 -->
+        </div> <!-- end of content -->
+      </div>
+
+</body>
+</html>
